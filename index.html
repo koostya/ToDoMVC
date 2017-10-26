@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>ToDoMVC</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="wrapper">
+        <div class="mvc" id="mvc">
+            <div class="input_wrapper main_input_wrapper">
+                <input type="text" placeholder="What needs to be done?" id="main_input">
+                <div class="choose_all">
+                    <input type="checkbox" id="choose_all">
+                    <label for="choose_all"></label>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="items_left">
+                    <span>0</span> items left
+                </div>
+                <div class="tabs">
+                    <div class="tab active" data="all">All</div>
+                    <div class="tab" data="active">Active</div>
+                    <div class="tab" data="completed">Completed</div>
+                </div>
+                <button id="clear_completed" class="">
+                    Clear completed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./index.js"></script>
+    </body>
+</html>

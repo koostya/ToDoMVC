@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    position: relative;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mvc {
+    width:500px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.input_wrapper {
+    position: relative;
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid #ccc;
+}
+
+.input_wrapper input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 16px 0 60px;
+    color: #000;
+    font-size: 20px;
+}
+
+.input_wrapper input:focus {
+    outline: none;
+}
+
+.input_wrapper input::-webkit-input-placeholder {
+    color: #ccc;
+    font-style: italic;
+    font-size:20px;
+}
+.input_wrapper input::-moz-placeholder {
+    color: #ccc;
+    font-style: italic;
+    font-size:20px;
+}
+.input_wrapper input:-moz-placeholder {
+    color: #ccc;
+    font-style: italic;
+    font-size:20px;
+}
+.input_wrapper input:-ms-input-placeholder {
+    color: #ccc;
+    font-style: italic;
+    font-size:20px;
+}
+
+.item {
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+}
+
+.item.completed .text span {
+    color: #d9d9d9;
+    position: relative;
+}
+
+.item.completed .text span:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 2px;
+    background-color: #d9d9d9;
+}
+
+.item .text {
+    width: 80%;
+    padding-left: 30px;
+    font-size:20px;
+}
+
+.item .checkbox {
+    width: 5%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    padding-left: 10px;
+}
+
+.item .checkbox input {
+    position: absolute;
+    left: -9999px;
+}
+
+.item .checkbox label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.item .checkbox label:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item .checkbox input:checked + label:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.item.completed .checkbox input + label:before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.item .remove {
+    width: 5%;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    display: none;
+    transition: background-color .3s;
+}
+
+.item:hover .remove {
+    display: block;
+}
+
+.item .remove:hover:before,
+.item .remove:hover:after {
+    background-color: #af5b5e;
+}
+
+.item .remove:before,
+.item .remove:after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #cc9a9a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 38%;
+}
+
+.item .remove:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+
+}
+
+.item .remove:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    font-size: 12px;
+    color: #777;
+}
+
+.mvc.active .menu {
+    display: flex;
+}
+
+.mvc.active .menu:before {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.menu:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 50px;
+    bottom: 0;
+}
+
+.menu .items_left {
+    padding-left: 10px;
+}
+
+.tabs {
+    position: relative;
+}
+
+.tabs .tab {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 3px 7px;
+}
+
+.tabs .tab.active {
+    box-shadow: 0 0 0 1px rgba(175, 47, 47, 0.2);
+}
+
+.tabs .tab:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(175, 47, 47, 0.2);
+}
+
+#clear_completed {
+    background-color: transparent;
+    border: none;
+    display: block;
+    z-index: 100;
+    color: #777;
+    font-size: 12px;
+    padding-right: 10px;
+    visibility: hidden;
+}
+
+#clear_completed:focus {
+    outline: none;
+}
+
+#clear_completed.active {
+    visibility: visible;
+}
+
+#clear_completed:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.choose_all {
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+}
+
+.choose_all.active {
+    visibility: visible;
+}
+
+.choose_all input {
+    position: absolute;
+    left: -9999px;
+}
+
+.choose_all label {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    border: 4px solid #e6e6e6;
+    border-top: none;
+    border-right: none;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.choose_all input:checked + label {
+    background-color: transparent;
+    border: 4px solid #737373;
+    border-top: none;
+    border-right: none;
+}
+
+.updateInput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: none;
+    padding: 0 16px 0 60px;
+    color: #000;
+    font-size: 20px;
+}
